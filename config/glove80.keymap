@@ -80,7 +80,7 @@
                   &kp TAB     &kp Q       &kp W       &kp E        &kp R   &kp T                                                                   &kp Y        &kp U           &kp I         &kp O     &kp P                      &kp BSLH
  &mt LS(LC(LG(LALT))) ESC     &kp A       &kp S       &kp D        &kp F   &kp G                                                                   &kp H        &kp J           &kp K         &kp L  &kp SEMI  &mt RS(RC(RG(LALT))) LS(SQT)
                 &kp GRAVE     &kp Z  &mt LALT X  &mt LGUI C  &mt LCTRL V   &kp B  &kp LSHFT  &kp LCTRL  &kp LGUI  &kp RGUI  &kp RCTRL  &kp RSHFT   &kp N  &mt RCTRL M  &mt RGUI COMMA  &mt RALT DOT  &kp FSLH                     &kp PG_UP
-     &magic LAYER_Magic 0  &kp HOME     &kp END    &kp LEFT    &kp RIGHT           &kp BSPC     &lower  &kp LALT  &kp RALT    &kp RET  &kp SPACE             &kp DOWN          &kp UP      &kp LBKT  &kp RBKT                     &kp PG_DN
+     &magic MAGIC 0  &kp HOME     &kp END    &kp LEFT    &kp RIGHT           &kp BSPC     &lower  &kp LALT  &kp RALT    &kp RET  &kp SPACE             &kp DOWN          &kp UP      &kp LBKT  &kp RBKT                     &kp PG_DN
             >;
         };
 
@@ -91,7 +91,7 @@
                &trans         &none       &none  &kp UP_ARROW     &none      &none                                                  &kp RIGHT_PARENTHESIS   &kp KP_N7      &kp KP_N8      &kp EQUAL     &kp RA(N3)            &none
                &trans     &kp GRAVE  &kp RA(N4)    &kp RA(N5)    &kp N5      &none                                                                  &none   &kp MINUS  &kp RA(MINUS)  &kp RA(EQUAL)  &kp LS(GRAVE)            &none
                &trans     &kp K_APP       &none       &kp F11   &kp F12  &kp PG_DN  &trans  &trans  &trans  &trans  &trans  &trans               &kp BSLH   &kp KP_N1      &kp KP_N2      &kp KP_N3          &none           &trans
- &magic LAYER_Magic 0      &kp CAPS     &kp INS       &kp F11   &kp F12             &trans   &to 0  &trans  &trans  &trans  &trans                          &kp KP_N0      &kp KP_N0     &kp KP_DOT          &none           &trans
+ &magic MAGIC 0      &kp CAPS     &kp INS       &kp F11   &kp F12             &trans   &to 0  &trans  &trans  &trans  &trans                          &kp KP_N0      &kp KP_N0     &kp KP_DOT          &none           &trans
             >;
         };
 
