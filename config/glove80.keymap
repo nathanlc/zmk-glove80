@@ -144,6 +144,23 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+        combo_because {
+            timeout-ms = <50>;
+            key-positions = <POS_LH_C1R5 POS_LH_C3R5>;
+            bindings =
+                <&kp B>,
+                <&kp E>,
+                <&kp C>,
+                <&kp A>,
+                <&kp U>,
+                <&kp S>,
+                <&kp E>;
+                <&kp SPACE>;
+        }
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
