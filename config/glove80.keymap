@@ -188,7 +188,7 @@
                   &kp TAB     &kp Q       &kp W       &kp E        &kp R   &kp T                                                                   &kp Y        &kp U           &kp I         &kp O     &kp P                      &kp BSLH
  &mt LS(LC(LG(LALT))) ESC     &kp A       &kp S       &kp D        &kp F   &kp G                                                                   &kp H        &kp J           &kp K         &kp L  &kp SEMI  &mt RS(RC(RG(LALT))) LS(SQT)
                 &kp GRAVE     &kp Z  &mt LALT X  &mt LGUI C  &mt LCTRL V   &kp B  &kp LSHFT  &kp LCTRL  &kp LGUI  &kp RGUI  &kp RCTRL  &kp RSHFT   &kp N  &mt RCTRL M  &mt RGUI COMMA  &mt RALT DOT  &kp FSLH                     &kp PG_UP
-     &magic MAGIC 0  &kp HOME     &kp END    &kp LEFT    &kp RIGHT           &kp BSPC     &lower  &kp LALT  &kp RALT    &kp RET  &kp SPACE             &kp DOWN          &kp UP      &kp LBKT  &kp RBKT                     &kp PG_DN
+     &magic MAGIC 0  &kp HOME     &kp END    &kp LEFT    &kp RIGHT           &kp BSPC     &layer_td  &kp LALT  &kp RALT    &kp RET  &kp SPACE             &kp DOWN          &kp UP      &kp LBKT  &kp RBKT                     &kp PG_DN
             >;
         };
 
