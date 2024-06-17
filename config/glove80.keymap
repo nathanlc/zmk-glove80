@@ -167,7 +167,7 @@
                 <&kp S>,
                 <&kp E>,
                 <&kp SPACE>;
-        }
+        };
     };
 
     keymap {
