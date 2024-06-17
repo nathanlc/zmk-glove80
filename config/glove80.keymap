@@ -165,7 +165,7 @@
                 <&kp A>,
                 <&kp U>,
                 <&kp S>,
-                <&kp E>;
+                <&kp E>,
                 <&kp SPACE>;
         }
     };
