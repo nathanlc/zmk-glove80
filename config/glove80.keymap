@@ -172,6 +172,118 @@
             wait-ms = <5>;
             bindings = <&macro_tap &kp T &kp H &kp E &kp R &kp E>;
         };
+
+        m_the: m_the {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            bindings = <&macro_tap &kp T &kp E>;
+        };
+
+        m_be: m_be {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            bindings = <&macro_tap &kp B &kp E>;
+        };
+
+        m_to: m_to {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            bindings = <&macro_tap &kp T &kp O>;
+        };
+
+        m_of: m_of {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            bindings = <&macro_tap &kp O &kp F>;
+        };
+
+        m_and: m_and {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            bindings = <&macro_tap &kp Q &kp N &kp D>;
+        };
+
+        m_in: m_in {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            bindings = <&macro_tap &kp I &kp N>;
+        };
+
+        m_is: m_is {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            bindings = <&macro_tap &kp I &kp S>;
+        };
+
+        m_that: m_that {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            bindings = <&macro_tap &kp T &kp H>;
+        };
+
+        m_have: m_have {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            bindings = <&macro_tap &kp H &kp Q &kp V>;
+        };
+
+        m_it: m_it {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            bindings = <&macro_tap &kp I &kp T>;
+        };
+
+        m_for: m_for {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            bindings = <&macro_tap &kp F &kp O &kp R>;
+        };
+
+        m_not: m_not {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            bindings = <&macro_tap &kp N &kp O &kp T>;
+        };
+
+        m_on: m_on {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            bindings = <&macro_tap &kp O &kp N>;
+        };
+
+        m_with: m_with {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            bindings = <&macro_tap &kp Z &kp I &kp T &kp H>;
+        };
+
+        m_he: m_he {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            bindings = <&macro_tap &kp H &kp E>;
+        };
+
+        m_as: m_as {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            bindings = <&macro_tap &kp Q &kp S>;
+        };
     };
 
     combos {
@@ -187,6 +299,102 @@
             timeout-ms = <50>;
             key-positions = <POS_LH_C1R3 POS_LH_C2R3 POS_RH_C1R4>;
             bindings = <&m_there>;        
+        };
+
+        combo_the {
+            timeout-ms = <50>;
+            key-positions = <POS_LH_C1R3 POS_LH_C3R3>;
+            bindings = <&m_the>;
+        };
+
+        combo_be {
+            timeout-ms = <50>;
+            key-positions = <POS_LH_C1R5 POS_LH_C3R3>;
+            bindings = <&m_be>;
+        };
+
+        combo_to {
+            timeout-ms = <50>;
+            key-positions = <POS_LH_C1R3 POS_RH_C4R3>;
+            bindings = <&m_to>;
+        };
+
+        combo_of {
+            timeout-ms = <50>;
+            key-positions = <POS_RH_C4R3 POS_LH_C2R4>;
+            bindings = <&m_of>;
+        };
+
+        combo_and {
+            timeout-ms = <50>;
+            key-positions = <POS_LH_C5R4 POS_RH_C1R5 POS_LH_C3R4>;
+            bindings = <&m_and>;
+        };
+
+        combo_in {
+            timeout-ms = <50>;
+            key-positions = <POS_RH_C3R3 POS_RH_C1R5>;
+            bindings = <&m_in>;
+        };
+
+        combo_is {
+            timeout-ms = <50>;
+            key-positions = <POS_RH_C3R3 POS_LH_C4R4>;
+            bindings = <&m_is>;
+        };
+
+        combo_that {
+            timeout-ms = <50>;
+            key-positions = <POS_LH_C1R3 POS_RH_C1R4>;
+            bindings = <&m_that>;
+        };
+
+        combo_have {
+            timeout-ms = <50>;
+            key-positions = <POS_RH_C1R4 POS_LH_C5R4 POS_LH_C2R5>;
+            bindings = <&m_have>;
+        };
+
+        combo_it {
+            timeout-ms = <50>;
+            key-positions = <POS_RH_C3R3 POS_LH_C1R3>;
+            bindings = <&m_it>;
+        };
+
+        combo_for {
+            timeout-ms = <50>;
+            key-positions = <POS_LH_C2R4 POS_RH_C4R3 POS_LH_C2R3>;
+            bindings = <&m_for>;
+        };
+
+        combo_not {
+            timeout-ms = <50>;
+            key-positions = <POS_RH_C1R5 POS_RH_C4R3 POS_LH_C1R3>;
+            bindings = <&m_not>;
+        };
+
+        combo_on {
+            timeout-ms = <50>;
+            key-positions = <POS_RH_C4R3 POS_RH_C1R5>;
+            bindings = <&m_on>;
+        };
+
+        combo_with {
+            timeout-ms = <50>;
+            key-positions = <POS_LH_C4R3 POS_RH_C3R3 POS_LH_C1R3 POS_RH_C1R4>;
+            bindings = <&m_with>;
+        };
+
+        combo_he {
+            timeout-ms = <50>;
+            key-positions = <POS_RH_C1R4 POS_LH_C3R3>;
+            bindings = <&m_he>;
+        };
+
+        combo_as {
+            timeout-ms = <50>;
+            key-positions = <POS_LH_C5R4 POS_LH_C4R4>;
+            bindings = <&m_as>;
         };
     };
 
