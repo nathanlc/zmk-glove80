@@ -162,12 +162,14 @@
         m_because: m_because {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp B &kp E &kp C &kp A &kp U &kp S &kp E>;
+            wait-ms = <5>;
+            bindings = <&macro_tap &kp B &kp E &kp C &kp Q &kp U &kp S &kp E>;
         };
 
         m_there: m_there {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <5>;
             bindings = <&macro_tap &kp T &kp H &kp E &kp R &kp E>;
         };
     };
