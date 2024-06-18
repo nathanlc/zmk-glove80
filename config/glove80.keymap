@@ -162,6 +162,7 @@
 
     combos {
         compatible = "zmk,combos";
+
         combo_because {
             timeout-ms = <50>;
             key-positions = <POS_LH_C1R5 POS_LH_C3R5>;
@@ -172,8 +173,18 @@
                 <&kp A>,
                 <&kp U>,
                 <&kp S>,
+                <&kp E>;
+        };
+
+        combo_there {
+            timeout-ms = <50>;
+            key-positions = <POS_LH_C1R3 POS_LH_C2R3 POS_LR_C1R4>;
+            bindings =
+                <&kp T>,
+                <&kp H>,
                 <&kp E>,
-                <&kp SPACE>;
+                <&kp R>,
+                <&kp E>,
         };
     };
 
