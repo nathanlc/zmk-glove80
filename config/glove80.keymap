@@ -178,7 +178,7 @@
 
         combo_there {
             timeout-ms = <50>;
-            key-positions = <POS_LH_C1R3 POS_LH_C2R3 POS_LR_C1R4>;
+            key-positions = <POS_LH_C1R3 POS_LH_C2R3 POS_RH_C1R4>;
             bindings =
                 <&kp T>,
                 <&kp H>,
