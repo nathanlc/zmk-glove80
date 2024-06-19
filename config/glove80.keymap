@@ -307,140 +307,140 @@
             timeout-ms = <50>;
             key-positions = <POS_LH_C1R5 POS_LH_C3R5>;
             bindings = <&m_because>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
 
         combo_there {
             timeout-ms = <50>;
             key-positions = <POS_LH_C1R3 POS_RH_C1R4 POS_LH_C2R3>;
             bindings = <&m_there>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
 
         combo_the {
             timeout-ms = <50>;
             key-positions = <POS_LH_C1R3 POS_LH_C3R3>;
             bindings = <&m_the>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
 
         combo_be {
             timeout-ms = <50>;
             key-positions = <POS_LH_C1R5 POS_LH_C3R3>;
             bindings = <&m_be>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
 
         combo_to {
             timeout-ms = <50>;
             key-positions = <POS_LH_C1R3 POS_RH_C4R3>;
             bindings = <&m_to>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
 
         combo_of {
             timeout-ms = <50>;
             key-positions = <POS_RH_C4R3 POS_LH_C2R4>;
             bindings = <&m_of>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
 
         combo_and {
             timeout-ms = <50>;
             key-positions = <POS_LH_C5R3 POS_RH_C1R5 POS_LH_C3R4>;
             bindings = <&m_and>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
 
         combo_in {
             timeout-ms = <50>;
             key-positions = <POS_RH_C3R3 POS_RH_C1R5>;
             bindings = <&m_in>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
 
         combo_is {
             timeout-ms = <50>;
             key-positions = <POS_RH_C3R3 POS_LH_C4R4>;
             bindings = <&m_is>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
 
         combo_that {
             timeout-ms = <50>;
             key-positions = <POS_LH_C1R3 POS_RH_C1R4 POS_LH_C5R3>;
             bindings = <&m_that>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
 
         combo_this {
             timeout-ms = <50>;
             key-positions = <POS_LH_C1R3 POS_RH_C1R4 POS_RH_C3R3 POS_LH_C4R4>;
             bindings = <&m_this>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
 
         combo_have {
             timeout-ms = <50>;
             key-positions = <POS_RH_C1R4 POS_LH_C5R3 POS_LH_C2R5>;
             bindings = <&m_have>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
 
         combo_it {
             timeout-ms = <50>;
             key-positions = <POS_RH_C3R3 POS_LH_C1R3>;
             bindings = <&m_it>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
 
         combo_for {
             timeout-ms = <50>;
             key-positions = <POS_LH_C2R4 POS_RH_C4R3 POS_LH_C2R3>;
             bindings = <&m_for>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
 
         combo_not {
             timeout-ms = <50>;
             key-positions = <POS_RH_C1R5 POS_RH_C4R3 POS_LH_C1R3>;
             bindings = <&m_not>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
 
         combo_on {
             timeout-ms = <50>;
             key-positions = <POS_RH_C4R3 POS_RH_C1R5>;
             bindings = <&m_on>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
 
         combo_with {
             timeout-ms = <50>;
             key-positions = <POS_LH_C5R5 POS_RH_C3R3 POS_LH_C1R3 POS_RH_C1R4>;
             bindings = <&m_with>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
 
         combo_without {
             timeout-ms = <50>;
             key-positions = <POS_LH_C5R5 POS_RH_C3R3 POS_LH_C1R3 POS_RH_C1R4 POS_RH_C4R3>;
             bindings = <&m_without>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
 
         combo_he {
             timeout-ms = <50>;
             key-positions = <POS_RH_C1R4 POS_LH_C3R3>;
             bindings = <&m_he>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
 
         combo_as {
             timeout-ms = <50>;
             key-positions = <POS_LH_C5R3 POS_LH_C4R4>;
             bindings = <&m_as>;
-            layers = <DEFAULT>;
+            layers = <0>;
         };
     };
 

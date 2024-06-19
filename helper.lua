@@ -54,6 +54,8 @@ local char_pos_map = {
 	-- [""] = "POS_RH_C5R5",
 }
 
+local default_layout = 0
+
 local macro_tmpl = [[
 	m_%s: m_%s {
 		compatible = "zmk,behavior-macro";
@@ -68,7 +70,7 @@ local combo_tmpl = [[
 		timeout-ms = <50>;
 		key-positions = <%s>;
 		bindings = <&m_%s>;
-		layers = <DEFAULT>;
+		layers = <%d>;
 	};
 ]]
 
@@ -134,7 +136,7 @@ end
 --- @return string
 local word_to_combo = function(key, value)
 	local trimmed_key = trim(key)
-	return combo_tmpl:format(trimmed_key, chars_to_positions(value), trimmed_key)
+	return combo_tmpl:format(trimmed_key, chars_to_positions(value), trimmed_key, default_layout)
 end
 
 --- @return table, table
