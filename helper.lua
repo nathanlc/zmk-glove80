@@ -1,22 +1,24 @@
 local word_maps = {
-	{"because", "bc"},
-	{"there", "thr"},
-	{"the", "te"},
-	{"be", "be"},
-	{"to", "to"},
-	{"of", "of"},
-	{"and", "and"},
-	{"in", "in"},
-	{"is", "is"},
-	{"that", "th"},
-	{"have", "hav"},
-	{"it", "it"},
-	{"for", "for"},
-	{"not", "not"},
-	{"on", "on"},
-	{"with", "with"},
-	{"he", "he"},
-	{"as", "as"}
+	{"because ", "bc"},
+	{"there ", "thr"},
+	{"the ", "te"},
+	{"be ", "be"},
+	{"to ", "to"},
+	{"of ", "of"},
+	{"and ", "and"},
+	{"in ", "in"},
+	{"is ", "is"},
+	{"that ", "tha"},
+	{"this ", "this"},
+	{"have ", "hav"},
+	{"it ", "it"},
+	{"for ", "for"},
+	{"not ", "not"},
+	{"on ", "on"},
+	{"with ", "with"},
+	{"without ", "witho"},
+	{"he ", "he"},
+	{"as ", "as"}
 }
 
 local char_pos_map = {
@@ -66,8 +68,16 @@ local combo_tmpl = [[
 		timeout-ms = <50>;
 		key-positions = <%s>;
 		bindings = <&m_%s>;
+		layers = <DEFAULT>;
 	};
 ]]
+
+
+--- @param s string
+--- @return string
+local trim = function(s)
+	return (s:gsub("^%s*(.-)%s*$", "%1"))
+end
 
 --- @param chars string
 --- @return string
@@ -87,6 +97,9 @@ local chars_to_bindings = function(chars)
 		end
 		if char == "W" then
 			converted_char = "Z"
+		end
+		if char == " " then
+			converted_char = "SPACE"
 		end
 		bindings = bindings .. " &kp " .. converted_char
 	end
@@ -111,8 +124,9 @@ end
 --- @param key string
 --- @return string
 local word_to_macro = function(key)
+	local trimmed_key = trim(key)
 	local upper_key = string.upper(key)
-	return macro_tmpl:format(key, key, chars_to_bindings(upper_key))
+	return macro_tmpl:format(trimmed_key, trimmed_key, chars_to_bindings(upper_key))
 end
 
 --- @param key string
