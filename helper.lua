@@ -1,20 +1,22 @@
 local word_maps = {
-	{"the", "TE"},
-	{"be", "BE"},
-	{"to", "TO"},
-	{"of", "OF"},
-	{"and", "AND"},
-	{"in", "IN"},
-	{"is", "IS"},
-	{"that", "TH"},
-	{"have", "HAV"},
-	{"it", "IT"},
-	{"for", "FOR"},
-	{"not", "NOT"},
-	{"on", "ON"},
-	{"with", "WITH"},
-	{"he", "HE"},
-	{"as", "AS"}
+	{"because", "bc"},
+	{"there", "thr"},
+	{"the", "te"},
+	{"be", "be"},
+	{"to", "to"},
+	{"of", "of"},
+	{"and", "and"},
+	{"in", "in"},
+	{"is", "is"},
+	{"that", "th"},
+	{"have", "hav"},
+	{"it", "it"},
+	{"for", "for"},
+	{"not", "not"},
+	{"on", "on"},
+	{"with", "with"},
+	{"he", "he"},
+	{"as", "as"}
 }
 
 local char_pos_map = {
@@ -60,11 +62,11 @@ local macro_tmpl = [[
 ]]
 
 local combo_tmpl = [[
-   combo_%s {
-       timeout-ms = <50>;
-       key-positions = <%s>;
-       bindings = <&m_%s>;
-   };
+	combo_%s {
+		timeout-ms = <50>;
+		key-positions = <%s>;
+		bindings = <&m_%s>;
+	};
 ]]
 
 --- @param chars string
@@ -95,7 +97,8 @@ local chars_to_positions = function(chars)
 	local positions = ""
 	for i = 1, #chars do
 		local char = chars:sub(i, i)
-		local pos = char_pos_map[char]
+		local upper_char = string.upper(char)
+		local pos = char_pos_map[upper_char]
 		if positions == "" then
 			positions = pos
 		else
@@ -106,10 +109,10 @@ local chars_to_positions = function(chars)
 end
 
 --- @param key string
---- @param value string
 --- @return string
-local word_to_macro = function(key, value)
-	return macro_tmpl:format(key, key, chars_to_bindings(value))
+local word_to_macro = function(key)
+	local upper_key = string.upper(key)
+	return macro_tmpl:format(key, key, chars_to_bindings(upper_key))
 end
 
 --- @param key string
@@ -126,7 +129,7 @@ local generate_macros_and_combos = function()
 	for _, word in ipairs(word_maps) do
 		local key = word[1]
 		local value = word[2]
-		table.insert(macros, word_to_macro(key, value))
+		table.insert(macros, word_to_macro(key))
 		table.insert(combos, word_to_combo(key, value))
 	end
 	return macros, combos
