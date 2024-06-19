@@ -133,7 +133,8 @@ end
 --- @param value string
 --- @return string
 local word_to_combo = function(key, value)
-	return combo_tmpl:format(key, chars_to_positions(value), key)
+	local trimmed_key = trim(key)
+	return combo_tmpl:format(trimmed_key, chars_to_positions(value), trimmed_key)
 end
 
 --- @return table, table
