@@ -110,11 +110,19 @@
 
         // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
         // Configure it as a tap dance, so the first tap (or hold) is a &mo and the second tap is a &to
-        layer_td: tap_dance_0 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
+        // lower_td: tap_dance_0 {
+        //     compatible = "zmk,behavior-tap-dance";
+        //     #binding-cells = <0>;
+        //     tapping-term-ms = <200>;
+        //     bindings = <&mo LOWER>, <&to LOWER>;
+        // };
+
+        mo_repeat: mo_repeat {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            bindings = <&mo LOWER>, <&to LOWER>;
+            bindings = <&mo>, <&key_repeat>;
         };
     };
 
@@ -159,6 +167,7 @@
                 <&bt BT_SEL 3>;
         };
 
+        // MACRO CHORDS START
         m_because: m_because {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -298,11 +307,13 @@
             wait-ms = <5>;
             bindings = <&macro_tap &kp Q &kp S &kp SPACE>;
         };
+        // MACRO CHORDS END
     };
 
     combos {
         compatible = "zmk,combos";
 
+        // COMBO CHORDS START
         combo_because {
             timeout-ms = <50>;
             key-positions = <POS_LH_C1R5 POS_LH_C3R5>;
@@ -442,6 +453,7 @@
             bindings = <&m_as>;
             layers = <0>;
         };
+        // COMBO CHORDS END
     };
 
     keymap {
@@ -461,8 +473,8 @@
                 &kp EQUAL    &kp N1      &kp N2      &kp N3       &kp N4  &kp N5                                                                  &kp N6       &kp N7          &kp N8        &kp N9    &kp N0                     &kp MINUS
                   &kp TAB     &kp Q       &kp W       &kp E        &kp R   &kp T                                                                   &kp Y        &kp U           &kp I         &kp O     &kp P                      &kp BSLH
  &mt LS(LC(LG(LALT))) ESC     &kp A       &kp S       &kp D        &kp F   &kp G                                                                   &kp H        &kp J           &kp K         &kp L  &kp SEMI  &mt RS(RC(RG(LALT))) LS(SQT)
-                &kp GRAVE     &kp Z  &mt LALT X  &mt LGUI C  &mt LCTRL V   &kp B  &kp LSHFT  &kp LCTRL  &kp LGUI  &kp RGUI  &kp RCTRL  &kp RSHFT   &kp N  &mt RCTRL M  &mt RGUI COMMA  &mt RALT DOT  &kp FSLH                     &kp PG_UP
-     &magic MAGIC 0  &kp HOME     &kp END    &kp LEFT    &kp RIGHT           &kp BSPC     &layer_td  &kp LALT  &kp RALT    &kp RET  &kp SPACE             &kp DOWN          &kp UP      &kp LBKT  &kp RBKT                     &kp PG_DN
+                &kp GRAVE     &kp Z  &mt LALT X  &mt LGUI C  &mt LCTRL V   &kp B  &sk LSHFT  &kp LCTRL  &kp LGUI  &kp RGUI  &kp RCTRL  &sk RSHFT   &kp N  &mt RCTRL M  &mt RGUI COMMA  &mt RALT DOT  &kp FSLH                     &kp PG_UP
+     &magic MAGIC 0  &kp HOME     &kp END    &kp LEFT    &kp RIGHT           &kp BSPC     &mo_repeat LOWER 0  &kp LALT  &kp RALT    &lt LOWER RET  &kp SPACE             &kp DOWN          &kp UP      &kp LBKT  &kp RBKT                     &kp PG_DN
             >;
         };
 

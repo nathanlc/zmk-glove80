@@ -1,24 +1,39 @@
 local word_maps = {
-	{"because ", "bc"},
-	{"there ", "thr"},
-	{"the ", "te"},
-	{"be ", "be"},
-	{"to ", "to"},
-	{"of ", "of"},
+	{"about ", "abou"},
+	{"above ", "abov"},
+	{"add ", "ad"},
+	{"after ", "af"},
+	{"again ", "agin"},
+	{"all ", "al"},
+	{"an ", "an"},
 	{"and ", "and"},
+	{"as ", "as"},
+	{"at ", "at"},
+	{"be ", "be"},
+	{"because ", "bc"},
+	{"for ", "for"},
+	{"have ", "hav"},
+	{"he ", "he"},
+	{"if ", "if"},
 	{"in ", "in"},
 	{"is ", "is"},
-	{"that ", "tha"},
-	{"this ", "this"},
-	{"have ", "hav"},
 	{"it ", "it"},
-	{"for ", "for"},
+	{"me ", "me"},
 	{"not ", "not"},
+	{"of ", "of"},
 	{"on ", "on"},
+	{"or ", "or"},
+	{"something ", "sth"},
+	{"that ", "tha"},
+	{"the ", "te"},
+	{"there ", "thr"},
+	{"this ", "this"},
+	{"to ", "to"},
+	{"what ", "wht"},
+	{"who ", "who"},
 	{"with ", "with"},
 	{"without ", "witho"},
-	{"he ", "he"},
-	{"as ", "as"}
+	{"yes ", "yes"},
 }
 
 local char_pos_map = {
@@ -57,21 +72,21 @@ local char_pos_map = {
 local default_layout = 0
 
 local macro_tmpl = [[
-	m_%s: m_%s {
-		compatible = "zmk,behavior-macro";
-		#binding-cells = <0>;
-		wait-ms = <5>;
-		bindings = <&macro_tap%s>;
-	};
+        m_%s: m_%s {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <4>;
+            bindings = <&macro_tap%s>;
+        };
 ]]
 
 local combo_tmpl = [[
-	combo_%s {
-		timeout-ms = <50>;
-		key-positions = <%s>;
-		bindings = <&m_%s>;
-		layers = <%d>;
-	};
+        combo_%s {
+            timeout-ms = <50>;
+            key-positions = <%s>;
+            bindings = <&m_%s>;
+            layers = <%d>;
+        };
 ]]
 
 
@@ -152,18 +167,99 @@ local generate_macros_and_combos = function()
 	return macros, combos
 end
 
-local generate_in_nvim_split = function()
+--- @return table, table
+local generate_macro_and_combo_lines = function()
 	local macros, combos = generate_macros_and_combos()
 	local macros_str = table.concat(macros, "\n")
 	local combos_str = table.concat(combos, "\n")
 	local macro_lines = vim.split(macros_str, "\n")
 	local combo_lines = vim.split(combos_str, "\n")
+	return macro_lines, combo_lines
+end
 
+--- @param file_path string
+--- @return table
+local function read_file_lines(file_path)
+	local lines = {}
+	local file = io.open(file_path, "r")
+	assert(file, "Could not open file: " .. file_path)
+
+	for line in file:lines() do
+		table.insert(lines, line)
+	end
+	file:close()
+
+	return lines
+end
+
+--- @param file_path string
+--- @param lines table
+--- @return boolean
+local function write_file_lines(file_path, lines)
+	local file = io.open(file_path, "w")
+	assert(file, "Could not open file: " .. file_path)
+
+	for _, line in ipairs(lines) do
+		file:write(line .. "\n")
+	end
+	file:close()
+
+	return true
+end
+
+--- @return table
+local generate_keymap_with_chords = function()
+	local macro_lines, combo_lines = generate_macro_and_combo_lines()
+
+	local is_before_macros = true
+	local is_after_macros = false
+	local is_before_combos = true
+	local is_after_combos = false
+	local final_lines = {}
+	local keymap_lines = read_file_lines("./config/glove80.keymap")
+	for _, line in ipairs(keymap_lines) do
+		if is_before_macros or (is_after_macros and is_before_combos) or is_after_combos then
+			table.insert(final_lines, line)
+		end
+
+		if string.find(line, "MACRO CHORDS START") then
+			is_before_macros = false
+			for _, macro_line in ipairs(macro_lines) do
+				table.insert(final_lines, macro_line)
+			end
+		end
+		if string.find(line, "MACRO CHORDS END") then
+			is_after_macros = true
+			table.insert(final_lines, line)
+		end
+
+		if string.find(line, "COMBO CHORDS START") then
+			is_before_combos = false
+			for _, combo_line in ipairs(combo_lines) do
+				table.insert(final_lines, combo_line)
+			end
+		end
+		if string.find(line, "COMBO CHORDS END") then
+			is_after_combos = true
+			table.insert(final_lines, line)
+		end
+	end
+
+	return final_lines
+end
+
+--- @param lines table
+local lines_in_split = function(lines)
 	vim.cmd("vsplit")
     local buf = vim.api.nvim_create_buf(false, true)
     vim.api.nvim_win_set_buf(0, buf)
-	vim.api.nvim_buf_set_lines(buf, -1, -1, false, macro_lines)
-	vim.api.nvim_buf_set_lines(buf, -1, -1, false, combo_lines)
+	vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
 end
 
-generate_in_nvim_split()
+local generate_keymap = function()
+	local keymap_with_chords_lines = generate_keymap_with_chords()
+
+	lines_in_split(keymap_with_chords_lines)
+end
+
+generate_keymap()
