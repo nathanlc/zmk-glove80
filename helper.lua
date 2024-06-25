@@ -92,13 +92,13 @@ local combo_tmpl = [[
 
 --- @param s string
 --- @return string
-local trim = function(s)
+local function trim(s)
 	return (s:gsub("^%s*(.-)%s*$", "%1"))
 end
 
 --- @param chars string
 --- @return string
-local chars_to_bindings = function(chars)
+local function chars_to_bindings(chars)
 	local bindings = ""
 	for i = 1, #chars do
 		local char = chars:sub(i, i)
@@ -115,6 +115,9 @@ local chars_to_bindings = function(chars)
 		if char == "W" then
 			converted_char = "Z"
 		end
+		if char == "M" then
+			converted_char = "SEMI"
+		end
 		if char == " " then
 			converted_char = "SPACE"
 		end
@@ -123,7 +126,7 @@ local chars_to_bindings = function(chars)
 	return bindings
 end
 
-local chars_to_positions = function(chars)
+local function chars_to_positions(chars)
 	local positions = ""
 	for i = 1, #chars do
 		local char = chars:sub(i, i)
@@ -140,7 +143,7 @@ end
 
 --- @param key string
 --- @return string
-local word_to_macro = function(key)
+local function word_to_macro(key)
 	local trimmed_key = trim(key)
 	local upper_key = string.upper(key)
 	return macro_tmpl:format(trimmed_key, trimmed_key, chars_to_bindings(upper_key))
@@ -149,13 +152,13 @@ end
 --- @param key string
 --- @param value string
 --- @return string
-local word_to_combo = function(key, value)
+local function word_to_combo(key, value )
 	local trimmed_key = trim(key)
 	return combo_tmpl:format(trimmed_key, chars_to_positions(value), trimmed_key, default_layout)
 end
 
 --- @return table, table
-local generate_macros_and_combos = function()
+local function generate_macros_and_combos()
 	local macros = {}
 	local combos = {}
 	for _, word in ipairs(word_maps) do
@@ -168,7 +171,7 @@ local generate_macros_and_combos = function()
 end
 
 --- @return table, table
-local generate_macro_and_combo_lines = function()
+local function generate_macro_and_combo_lines()
 	local macros, combos = generate_macros_and_combos()
 	local macros_str = table.concat(macros, "\n")
 	local combos_str = table.concat(combos, "\n")
@@ -208,7 +211,7 @@ local function write_file_lines(file_path, lines)
 end
 
 --- @return table
-local generate_keymap_with_chords = function()
+local function generate_keymap_with_chords()
 	local macro_lines, combo_lines = generate_macro_and_combo_lines()
 
 	local is_before_macros = true
@@ -249,14 +252,14 @@ local generate_keymap_with_chords = function()
 end
 
 --- @param lines table
-local lines_in_split = function(lines)
+local function lines_in_split(lines)
 	vim.cmd("vsplit")
     local buf = vim.api.nvim_create_buf(false, true)
     vim.api.nvim_win_set_buf(0, buf)
 	vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
 end
 
-local generate_keymap = function()
+local function generate_keymap()
 	local keymap_with_chords_lines = generate_keymap_with_chords()
 
 	lines_in_split(keymap_with_chords_lines)
